@@ -4,6 +4,7 @@
     <h1><% @albums.each do |album| %></h1>
 
     <div>
+      <a href="/albums/<%=album['id']%>">Select</a>
       Title: <%= album['title']%>
       Released: <%= album['release_year']%>
     </div>
