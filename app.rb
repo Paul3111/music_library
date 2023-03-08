@@ -1,13 +1,53 @@
-require_relative 'lib/database_connection'
+require './lib/database_connection'
+require 'sinatra'
+require 'sinatra/base'
+require 'sinatra/reloader'
+require './lib/album_repository'
+require './lib/artist_repository'
 
-# We need to give the database name to the method `connect`.
-DatabaseConnection.connect('music_library')
+DatabaseConnection.connect('music_library_test')
 
-# Perform a SQL query on the database and get the result set.
-sql = 'SELECT id, title FROM albums;'
-result = DatabaseConnection.exec_params(sql, [])
+#sql = 'SELECT * FROM books;'
+#result = DatabaseConnection.exec_params(sql, [])
 
-# Print out each record from the result set .
-result.each do |record|
-  p record
+class Application < Sinatra::Base
+  configure :development do
+    register Sinatra::Reloader
+  end
+
+  get '/albums' do
+    repo = AlbumRepository.new
+    albums = repo.all
+
+   response = albums.map do |album|
+     album.title
+   end.join(',')
+  end
+  
+  #get '/' do
+   #@name = params[:name]
+   #@cohort = "February 2023"
+   # return erb(:index)
+  #end
+
+  get '/' do
+   @names = ['Paul','Alice','George','Natalia']
+   return erb(:index)
+  end
+
+  get '/albums/:id' do
+   repo = AlbumRepository.new
+   artist_repo = ArtistRepository.new
+   @id = params[:id]
+   @album = repo.find(@id)
+   @artist = artist_repo.find(@album.artist_id)
+
+   return erb(:album)
+  end
+
+  get '/albums/' do
+   repo = AlbumRepository.new
+   @albums = repo.all
+   return erb(:albums)
+  end
 end
