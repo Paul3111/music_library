@@ -1,0 +1,14 @@
+<html>
+  <head></head>
+  <body>
+    <h1><% @artists.each do |artist| %></h1>
+
+    <div>
+      <a href="/artist/<%=artist['id']%>">Select</a>
+      Title: <%= artist['name']%>
+      Released: <%= artist['genre']%>
+    </div>
+       
+    <% end %>
+  </body>
+</html>

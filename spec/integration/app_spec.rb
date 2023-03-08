@@ -52,4 +52,14 @@ RSpec.describe Application do
       expect(response.body).to include ('Released: 1999')
     end
   end
+
+  context "GET /artist/:id" do
+    it "Returns HTML with details for a single artist." do
+      response = get('/artist/1')
+      
+      expect(response.status).to eq 200
+      expect(response.name).to eq "Michael Jackson"
+      expect(response.genre).to eq "Pop"
+    end
+  end
 end
