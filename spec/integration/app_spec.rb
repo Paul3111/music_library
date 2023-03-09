@@ -33,6 +33,24 @@ RSpec.describe Application do
     end
   end
 
+  context "GET /albums/new" do
+    it "Returns the HTML form to create a new album." do
+      response = get('/albums/new')
+
+      expect(response.status).to eq 200
+      expect(response.body).to include('<form action="/albums" method="POST">')
+    end
+  end
+
+  context "POST /albums" do
+    it "Returns a success page." do
+      response = post('/albums', title: "Album3", release_year: "2004", artist_id: 1)
+    
+      expect(response.status).to eq 200
+      expect(response.body).to include "<p>Your album has been added!</p>"
+    end
+  end
+
   context "GET /albums/:id" do
     it "Returns HTML for album2." do
         response = get('/albums/2')
@@ -58,8 +76,8 @@ RSpec.describe Application do
       response = get('/artist/1')
       
       expect(response.status).to eq 200
-      expect(response.name).to eq "Michael Jackson"
-      expect(response.genre).to eq "Pop"
+      expect(response.body).to include "Michael Jackson"
+      expect(response.body).to include "Pop"
     end
   end
 end
