@@ -51,6 +51,24 @@ RSpec.describe Application do
     end
   end
 
+  context "GET /artists/new" do
+    it "Returns the HTML form to create a new artist." do
+      response = get('/artists/new')
+      
+      expect(response.status).to eq 200
+      expect(response.body).to include('<form action="/artists" method="POST">')
+    end
+  end
+
+  context "POST /artists" do
+    it "Returns a success page" do
+      response = post('/artists', name: "Ray Charles", genre: "Soul")
+
+      expect(response.status).to eq 200
+      expect(response.body).to include "<p>Artist has been added!</p>"
+    end
+  end
+
   context "GET /albums/:id" do
     it "Returns HTML for album2." do
         response = get('/albums/2')

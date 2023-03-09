@@ -16,7 +16,7 @@ RSpec.describe AlbumRepository do
     it "Returns an album from the list of all albums." do
         repo = AlbumRepository.new
         albums = repo.all
-        expect(albums.length).to eq 2
+        expect(albums.length).to eq 4
         expect(albums.first['id']).to eq '1'
         expect(albums.first['title']).to eq 'Album1'
         expect(albums.first['release_year']).to eq '1999'

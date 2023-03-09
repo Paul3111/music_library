@@ -29,4 +29,10 @@ class ArtistRepository
     artist.genre = record['genre']
     return artist
   end
+
+  def create(artist)
+    sql = 'INSERT INTO artists (name, genre) VALUES ($1, $2);'
+    result = DatabaseConnection.exec_params(sql, [artist.name, artist.genre])
+    return result
+  end
 end
