@@ -5,12 +5,13 @@
 
     <div>
       <a href="/albums/<%=album['id']%>">Select</a>
-      Title: <%= album['title']%>
-      Released: <%= album['release_year']%>
+      Title: <%= album['title']%> |
+      Released: <%= album['release_year']%> |
     </div>
        
     <% end %>
-
+    <br><br>
+    <a href="/albums/new">Add album</a><br>
     <a href="/">Homepage</a>
   </body>
 </html>

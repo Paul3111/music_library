@@ -5,11 +5,13 @@
 
     <div>
       <a href="/artist/<%=artist['id']%>">Select</a>
-      Title: <%= artist['name']%>
-      Released: <%= artist['genre']%>
+      Title: <%= artist['name'] %> |
+      Genre: <%= artist['genre'] %> |
     </div>
 
     <% end %>
+    <br><br>
+    <a href="/artists/new">Add artist</a><br>
     <a href="/">Homepage</a>
   </body>
 </html>

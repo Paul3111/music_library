@@ -7,7 +7,7 @@ RSpec.describe Application do
 
     let(:app) { Application.new }
 
-  #context 'GET /' do
+  # context 'GET /' do
   #  it "Returns the HMTL hello message with the given name" do
   #    response = get('/', name: "Paul")
 
