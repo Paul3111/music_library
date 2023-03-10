@@ -5,7 +5,7 @@ require 'sinatra/reloader'
 require './lib/album_repository'
 require './lib/artist_repository'
 
-DatabaseConnection.connect('music_library_test')
+DatabaseConnection.connect
 
 #sql = 'SELECT * FROM books;'
 #result = DatabaseConnection.exec_params(sql, [])
