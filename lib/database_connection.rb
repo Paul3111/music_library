@@ -6,12 +6,12 @@ require 'pg'
 
 class DatabaseConnection
 
-  def self.connect(database_name)
+  def self.connect
     #@connection = PG.connect({ host: '127.0.0.1', dbname: database_name })
     if ENV['DATABASE_URL'] != nil
       @connection = PG.connect(ENV['DATABASE_URL'])
       return
-
+    end
     if ENV['ENV'] == 'test'
       database_name = 'music_library_test'
     else
