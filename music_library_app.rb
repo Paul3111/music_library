@@ -2,7 +2,7 @@ require_relative 'lib/database_connection'
 require_relative 'lib/album_repository'
 
 # We need to give the database name to the method `connect`.
-DatabaseConnection.connect('music_library')
+DatabaseConnection.connect
 
 #artist_repository = ArtistRepository.new
 album_repo = AlbumRepository.new
