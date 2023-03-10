@@ -19,7 +19,7 @@ class DatabaseConnection
   # This method executes an SQL query 
   # on the database, providing some optional parameters
   # (you will learn a bit later about when to provide these parameters).
-  #def self.exec_params(query, params)
+  def self.exec_params(query, params)
    if @connection.nil?
       raise 'DatabaseConnection.exec_params: Cannot run a SQL query as the connection to'\
       'the database was never opened. Did you make sure to call first the method '\
