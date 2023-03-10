@@ -7,6 +7,6 @@ CREATE TABLE albums (
 
 CREATE TABLE artists (
     id SERIAL,
-    title name,
+    name TEXT,
     genre TEXT
     );
