@@ -15,6 +15,7 @@ RSpec.describe Application do
 #      expect(response.body).to include('<img src= "hello.jpg"/>')
 #    end
 
+
 #    it "Returns the HMTL hello message with the given name" do
 #      response = get('/', name: "Alice")
   
