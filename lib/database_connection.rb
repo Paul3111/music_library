@@ -1,9 +1,5 @@
 require 'pg'
 
-# This class is a thin "wrapper" around the
-# PG library. We'll use it in our project to interact
-# with the database using SQL.
-
 class DatabaseConnection
 
   def self.connect
